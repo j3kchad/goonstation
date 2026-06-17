@@ -109,6 +109,22 @@
 	lockedTries = 3
 	var/danny_index = 0
 
+/datum/bioEffect/speech/aussie
+	name = "Frontal Gyrus Alteration Type-OZ"
+	desc = "Forces the language center of the subject's brain to construct sentences in an Australian manner."
+	id = "accent_aussie"
+	effectType = EFFECT_TYPE_DISABILITY
+	isBad = TRUE
+	msgGain = "Bloody hell! You feel like a true blue Aussie!"
+	msgLose = "You no longer dream of the outback."
+	reclaim_fail = 10
+	lockProb = 25
+	lockedGaps = 2
+	lockedDiff = 2
+	lockedChars = list("G","C")
+	lockedTries = 3
+
+
 
 /datum/bioEffect/speech/swedish
 	name = "Frontal Gyrus Alteration Type-B"

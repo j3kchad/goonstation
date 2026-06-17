@@ -406,6 +406,17 @@
 	onAdd(var/mob/owner)
 		owner.bioHolder?.AddEffect("accent_scots", 0, 0, 0, 1)
 
+/datum/trait/aussie
+	name = "Aussie"
+	desc = "You're a true blue fair dinkum Aussie from down under. G'day mate!"
+	id = "aussie"
+	icon_state = "scott"
+	points = 0
+	category = list("language")
+
+	onAdd(var/mob/owner)
+		owner.bioHolder?.AddEffect("accent_aussie", 0, 0, 0, 1)
+
 /datum/trait/chav
 	name = "Chav"
 	desc = "U wot m8? I sware i'll fite u."
