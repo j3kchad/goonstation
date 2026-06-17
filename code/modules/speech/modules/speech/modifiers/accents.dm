@@ -23,6 +23,10 @@ ABSTRACT_TYPE(/datum/speech_module/modifier/accent)
 
 
 // Dialects:
+/datum/speech_module/modifier/accent/aussie
+	id = SPEECH_MODIFIER_ACCENT_AUSSIE
+	accent_proc = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aussify))
+
 /datum/speech_module/modifier/accent/bingus
 	id = SPEECH_MODIFIER_ACCENT_BINGUS
 	accent_proc = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(bingus_parse))

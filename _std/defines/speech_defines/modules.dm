@@ -70,6 +70,7 @@
 #define SPEECH_MODIFIER_ACCENT_ADMIN_GOOD "accent_goodmin"
 #define SPEECH_MODIFIER_ACCENT_ADMIN_RAINBOW "accent_radmin"
 #define SPEECH_MODIFIER_ACCENT_ADMIN_RAINGLOW "accent_fabmin"
+#define SPEECH_MODIFIER_ACCENT_AUSSIE "accent_aussie"
 #define SPEECH_MODIFIER_ACCENT_BINGUS "accent_bingus"
 #define SPEECH_MODIFIER_ACCENT_BUTT "accent_butt"
 #define SPEECH_MODIFIER_ACCENT_CHAV "accent_chav"
