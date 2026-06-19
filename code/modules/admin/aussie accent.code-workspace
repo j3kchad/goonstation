@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "./tgui/.yarn/sdks/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true,
+		"workbench.editorAssociations": {
+			"*.dmi": "dmiEditor.dmiEditor"
+		},
+		"errorLens.enabledDiagnosticLevels": [
+			"error",
+			"warning",
+			"info"
+		]
+	}
+}

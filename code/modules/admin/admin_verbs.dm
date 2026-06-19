@@ -6,6 +6,7 @@ var/list/admin_verbs = list(
 		/client/proc/cmd_admin_say,
 		/client/proc/cmd_admin_gib_self,
 		/client/proc/cmd_help,
+		/client/proc/cmd_testaussie
 		),
 
 
@@ -2500,6 +2501,15 @@ proc/alert_all_ghosts(atom/target, message)
 	ADMIN_ONLY
 	SHOW_VERB_DESC
 	get_singleton(/datum/antagPopups).showPanel()
+
+
+/client/proc/cmd_testaussie()
+	SET_ADMIN_CAT(ADMIN_CAT_DEBUG)
+	set name = "test aussie accent"
+	set desc = "tests the aussie accent on a string of preset text"
+	SHOW_VERB_DESC
+	var/test_text = input(src, "Enter text to aussify") as text
+	boutput(src, aussify(test_text))
 
 /client/proc/cmd_help()
 	set name = "command help"
