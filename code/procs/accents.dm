@@ -2523,7 +2523,7 @@ var/list/zalgo_mid = list(
 		modded_tokens += modified_token
 	var/modded = jointext(modded_tokens, " ")
 	if(prob(33))
-		modded += pick(" Maaate!"," Mate!", " MAAAAATE!")
+		modded += pick(" Maaate!"," Mate!", " MAAAAATE!", " CRIKEY!")
 	return modded
 
 
