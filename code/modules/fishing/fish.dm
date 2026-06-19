@@ -707,6 +707,47 @@ TYPEINFO(/obj/item/reagent_containers/food/fish/meat_mutant)
 	inhand_color = "#af2323"
 	rarity = ITEM_RARITY_RARE
 */
+
+TYPEINFO(/obj/item/reagent_containers/food/fish/weed_fish)
+	appears_in_fish_collection = TRUE
+/obj/item/reagent_containers/food/fish/weed_fish
+	name = "weed fish"
+	desc = "I guess you could call it a reefer? A mellow fish that likes dank places. A favorite of botanists everywhere."
+	icon_state = "weed_fish"
+	inhand_color = "#0a6221"
+	rarity = ITEM_RARITY_RARE
+	brew_result = list(
+	"THC" = 10,
+	"CBD" = 10)
+	slice_product = /obj/item/plant/herb/cannabis
+
+TYPEINFO(/obj/item/reagent_containers/food/fish/rainbow_weed_fish)
+	appears_in_fish_collection = TRUE
+/obj/item/reagent_containers/food/fish/rainbow_weed_fish
+	name = "rainbow weed fish"
+	desc = "Whoah man. This seems to be like, a strange fish that glows in psychadelic colors or something."
+	icon_state = "rainbow_weed_fish"
+	inhand_color = "#fb42e5"
+	rarity = ITEM_RARITY_RARE
+	brew_result = list(
+	"THC" = 10,
+	"CBD" = 10,
+	"LSD" = 10)
+	slice_product = /obj/item/plant/herb/cannabis/mega
+
+TYPEINFO(/obj/item/reagent_containers/food/fish/sqweed_fish)
+	appears_in_fish_collection = TRUE
+/obj/item/reagent_containers/food/fish/sqweed_fish
+	name = "sqweed"
+	desc = "Uh. It's some kind of weird weed squid thing. Is that a bong?"
+	icon_state = "sqweed_fish"
+	inhand_color = "#fb42e5"
+	rarity = ITEM_RARITY_RARE
+	brew_result = list(
+	"THC" = 10,
+	"CBD" = 10)
+	slice_product = /obj/item/reagent_containers/glass/water_pipe
+
 TYPEINFO(/obj/item/reagent_containers/food/fish/eye_mutant)
 	appears_in_fish_collection = TRUE
 /obj/item/reagent_containers/food/fish/eye_mutant

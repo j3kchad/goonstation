@@ -468,7 +468,10 @@ ABSTRACT_TYPE(/datum/fishing_spot)
 	/mob/living/critter/small_animal/slug = 10,\
 	/mob/living/critter/small_animal/snake = 10,\
 	/obj/item/reagent_containers/food/fish/treefish = 5,\
-	/mob/living/critter/small_animal/frog = 10)
+	/mob/living/critter/small_animal/frog = 10,
+	/obj/item/reagent_containers/food/fish/weed_fish = 10,
+	/obj/item/reagent_containers/food/fish/rainbow_weed_fish = 10,
+	/obj/item/reagent_containers/food/fish/sqweed_fish = 5)
 
 /datum/fishing_spot/flower_vase
 	fishing_atom_type = /obj/item/decoration/flower_vase
