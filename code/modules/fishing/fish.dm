@@ -74,6 +74,7 @@ Alien/mutant/other fish:
 		Origami fish
 		Cardboard fish
 		Starstonefish
+		Buttfish
 */
 
 // These catagories aren't used currently.
@@ -763,6 +764,87 @@ TYPEINFO(/obj/item/reagent_containers/food/fish/blood_fish)
 	make_reagents()
 		src.reagents.add_reagent("blood", 20)
 		return
+
+
+TYPEINFO(/obj/item/reagent_containers/food/fish/butt_fish)
+	appears_in_fish_collection = TRUE
+/obj/item/reagent_containers/food/fish/butt_fish
+	name = "buttfish"
+	desc = "The actual fuck is this!? It's staring right at you with its little brown eye! Somehow it of reminds you of "
+	icon_state = "butt_fish"
+	inhand_color = "#BD8A57"
+	rarity = ITEM_RARITY_RARE
+	slice_product = /obj/item/clothing/head/butt
+	slice_suffix = "butt"
+
+	var/fish_color
+
+	var/static/list/sound_fart = list('sound/voice/farts/poo2.ogg', \
+								'sound/voice/farts/fart1.ogg', \
+								'sound/voice/farts/fart2.ogg', \
+								'sound/voice/farts/fart3.ogg', \
+								'sound/voice/farts/fart4.ogg', \
+								'sound/voice/farts/fart5.ogg')
+
+	proc/buttfish_burst() /* Buttfish are basically fragile whoopie cushions so they are gonna burst open a lot hehe */
+		var/turf/T = get_turf(src)
+		if(T)
+			T.visible_message(
+				"<b>[src]</b> [pick("bursts", "busts", "splits", "pops", "rips")] [pick("open", "apart")] in a [pick("cloud", "blast", "plume")] of [pick("horrific", "disgusting", "heinous", "eye-watering", "noxious")] farts! [pick("Aaarghh!", "Oh God!", "Fuck!", "Eughh!")]")
+			T.fluid_react_single("toxic_fart", 10, airborne = 1)
+			playsound(T, pick(src.sound_fart), 50, TRUE)
+		qdel(src)
+
+	proc/possible_butt_names()  /* of course the butt fish need random names like the roses do he  */
+		var/list/possible_names = list()
+		for(var/mob/M in mobs)
+			if(!M.mind)
+				continue
+			if(ishuman(M))
+				if(iswizard(M))
+					continue
+				if(isnukeop(M))
+					continue
+				possible_names += M
+		return possible_names
+
+	New()
+		..()
+		if (prob(50))
+			var/blend_color = pick(standard_skintones)
+			fish_color = standard_skintones[blend_color]
+		else
+			fish_color = rgb(rand(30,220), rand(30,220), rand(30,220))
+
+		src.color = fish_color
+		src.inhand_color = fish_color
+		src.UpdateIcon()
+
+		var/backup_name_txt = "names/first.txt"
+
+		var/list/possible_names = possible_butt_names()
+		var/butt_name
+		if(!length(possible_names))
+			butt_name = pick_string_autokey(backup_name_txt)
+		else
+			var/mob/chosen_mob = pick(possible_names)
+			butt_name = chosen_mob.real_name
+		desc = desc + butt_name + "."
+
+	attack(mob/target, mob/user, def_zone, is_special, params)
+		. = ..()
+		if (prob(20))
+			src.buttfish_burst()
+		else if (prob(50))
+			playsound(target, pick(src.sound_fart), 50, TRUE, 0, (1.5 - rand()))
+
+	attackby(obj/item/W, mob/user)
+		if (istool(W, src.slice_tools))
+			buttfish_burst()
+			qdel(src)
+			return
+
+		..()
 
 TYPEINFO(/obj/item/reagent_containers/food/fish/eye_mutant)
 	appears_in_fish_collection = TRUE
