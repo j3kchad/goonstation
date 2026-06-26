@@ -774,8 +774,7 @@ TYPEINFO(/obj/item/reagent_containers/food/fish/butt_fish)
 	icon_state = "butt_fish"
 	inhand_color = "#BD8A57"
 	rarity = ITEM_RARITY_RARE
-	slice_product = /obj/item/clothing/head/butt
-	slice_suffix = "butt"
+	sliceable = FALSE
 
 	var/fish_color
 
