@@ -2500,7 +2500,16 @@ var/list/zalgo_mid = list(
 /proc/aussify(var/string)
 	var/list/tokens = splittext(string, " ")
 	var/list/modded_tokens = list()
-
+	var/static/list/ing_exceptions = list(
+		"thing",
+		"king",
+		"ring",
+		"sing",
+		"bring",
+		"spring",
+		"string",
+		"wing"
+	)
 	var/regex/punct_check = regex("\\W+\\Z", "i")
 	for(var/token in tokens)
 		var/modified_token = ""
@@ -2518,13 +2527,49 @@ var/list/zalgo_mid = list(
 			modified_token = replacetext(original_word, lowertext(original_word), matching_token)
 			modified_token += punct
 		else
-			modified_token = token
+			if(lowertext(original_word) in ing_exceptions)
+				modified_token = original_word
+			else
+				var/datum/text_roamer/T = new/datum/text_roamer(original_word)
+				for(var/i = 0, i < length(original_word), i=i)
+					var/datum/parse_result/P = aussie_parse(T)
+					modified_token += P.string
+					i += P.chars_used
+					T.curr_char_pos = T.curr_char_pos + P.chars_used
+					T.update()
+			modified_token += punct
 
 		modded_tokens += modified_token
+
 	var/modded = jointext(modded_tokens, " ")
 	if(prob(33))
-		modded += pick(" Maaate!"," Mate!", " MAAAAATE!", " CRIKEY!")
+		modded += pick(" Maaate!", " Mate!", " MAAAAATE!", " CRIKEY!")
 	return modded
+
+/proc/aussie_parse(var/datum/text_roamer/R)
+	var/new_string = ""
+	var/used = 0
+
+	switch(R.curr_char)
+		if("i")
+			if(lowertext(R.next_char) == "n" && lowertext(R.next_next_char) == "g" && R.next_next_next_char == "")
+				new_string = "in'"
+				used = 3
+
+		if("I")
+			if(lowertext(R.next_char) == "n" && lowertext(R.next_next_char) == "g" && R.next_next_next_char == "")
+				new_string = "IN'"
+				used = 3
+
+	if(new_string == "")
+		new_string = R.curr_char
+		used = 1
+
+	var/datum/parse_result/P = new/datum/parse_result
+	P.string = new_string
+	P.chars_used = used
+	return P
+
 
 
 proc/accent_scramble(string)
