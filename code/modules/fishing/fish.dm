@@ -809,7 +809,7 @@ TYPEINFO(/obj/item/reagent_containers/food/fish/butt_fish)
 
 	New()
 		..()
-		if (prob(50))
+		if (prob(60))
 			var/blend_color = pick(standard_skintones)
 			fish_color = standard_skintones[blend_color]
 		else
@@ -843,6 +843,17 @@ TYPEINFO(/obj/item/reagent_containers/food/fish/butt_fish)
 			qdel(src)
 			return
 
+		if (fart_roll <= 55) /* 50% chance to play a fart sound (as well as the usual fish slap)*/
+			playsound(target, pick(src.sound_fart), rand(50, 80), TRUE, 0, (1.5 - rand()))
+			return
+
+		if (fart_roll <= 57) /* 2% chance of playing a novelty car horn fart */
+			playsound(target, 'sound/voice/farts/novelty_carhorn_fart_1.ogg', 100, TRUE, 0, 1)
+
+	attackby(obj/item/W, mob/user)
+		if (istool(W, src.slice_tools))
+			buttfish_burst()
+			return
 		..()
 
 TYPEINFO(/obj/item/reagent_containers/food/fish/eye_mutant)
