@@ -293,6 +293,16 @@ ABSTRACT_TYPE(/datum/syndicate_buylist/generic)
 	vr_allowed = FALSE
 	items = list(/obj/item/inflatable_mob/gorilla)
 
+/datum/syndicate_buylist/traitor/gorilla_implant
+	name = "Gorilla Implant"
+	items = list(/obj/item/implanter/gorilla)
+	cost = 3
+	desc = "Death will be no obstacle to the utter destruction of your foes with this inflatable gorilla implant! A huga angry gorilla will burst specactularly from the implantee upon their demise "
+	vr_allowed = FALSE
+	category = UPLINK::CATEGORY::IMPLANT
+	can_buy = UPLINK_TRAITOR | UPLINK_SPY_THIEF
+	max_buy = 1
+
 //////////////////////////////////////////////////// Standard items (traitor uplink) ///////////////////////////////////
 
 ABSTRACT_TYPE(/datum/syndicate_buylist/traitor)

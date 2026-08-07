@@ -227,6 +227,16 @@
 		src.imp = new /obj/item/implant/revenge/spawner/clownspider(src)
 		..()
 
+/obj/item/implanter/gorilla
+	name = "gorilla implanter"
+	icon_state = "implanter1-g"
+	sneaky = TRUE
+	HELP_MESSAGE_OVERRIDE({"When someone dies while implanted with this, an angry gorilla will explode from their chest. This implant will also make gorillas friendly to the user."})
+
+	New()
+		src.imp = new /obj/item/implant/revenge/spawner/gorilla(src)
+		..()
+
 /obj/item/implanter/marionette
 	icon_state = "implanter1-g"
 	sneaky = TRUE

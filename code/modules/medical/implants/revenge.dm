@@ -171,3 +171,25 @@ ABSTRACT_TYPE(/obj/item/implant/revenge/spawner)
 	power = 8
 	mob_type = /mob/living/critter/small_animal/wasp/angry
 	faction = FACTION_BOTANY
+
+/obj/item/implant/revenge/spawner/gorilla
+	name = "big hairy implant"
+	big_message = " explodes into a huge mob of gorillas! Holy shit!" //you'll never actually hear this unless you manage to get 6 or more implants in you
+	small_message = " bursts open into a fucking huge gorilla!"
+	mob_type = /mob/living/critter/gorilla/aggressive
+
+	do_effect(power) //of course we need a big silly explosion effect for our gorilla bursting out
+		var/turf/T = get_turf(src)
+
+		var/obj/overlay/Ov = new/obj/overlay(T)
+		Ov.anchored = ANCHORED //Create a big bomb explosion overlay.
+		Ov.name = "Explosion"
+		Ov.layer = NOLIGHT_EFFECTS_LAYER_BASE
+		Ov.pixel_x = -92
+		Ov.pixel_y = -96
+		Ov.icon = 'icons/effects/214x246.dmi'
+		Ov.icon_state = "explosion"
+
+		SPAWN(1.5 SECONDS) //Delete the overlay when finished with it.
+			qdel(Ov)
+		. = ..()
