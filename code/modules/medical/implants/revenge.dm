@@ -192,4 +192,6 @@ ABSTRACT_TYPE(/obj/item/implant/revenge/spawner)
 
 		SPAWN(1.5 SECONDS) //Delete the overlay when finished with it.
 			qdel(Ov)
+
+		playsound(src.loc, 'sound/voice/maneatersnarl.ogg', 60, 1)
 		. = ..()
