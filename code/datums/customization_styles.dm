@@ -153,6 +153,10 @@ TYPEINFO(/datum/customization_style/hair/gimmick)
 				name = "Buzzcut"
 				id = "cut"
 				gender = MASCULINE
+			chad
+				name = "Chad"
+				id = "chad"
+				gender = MASCULINE
 			clown
 				name = "Clown"
 				id = "clown"
