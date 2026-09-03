@@ -5663,3 +5663,13 @@
 		mix_phrase = "The mixture slowly thickens into a velvety spread."
 		mix_sound = 'sound/misc/drinkfizz.ogg'
 		drinkrecipe = TRUE
+
+	australium
+		name = "australium"
+		id = "australium"
+		result = "australium"
+		required_reagents = list("beer" = 10)
+		result_amount = 1
+		min_temperature = T0C + 100
+		mix_phrase = "The beer boils down, leaving behind a dark yeasty paste."
+		drinkrecipe = TRUE

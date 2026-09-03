@@ -4406,6 +4406,19 @@ datum
 			transparency = 60
 			bioeffect_id = "accent_tyke"
 
+		fooddrink/temp_bioeffect/australium
+			name = "australium"
+			id = "australium"
+			description = "A dark yeasty paste."
+			reagent_state = SOLID
+			fluid_r = 26
+			fluid_g = 17
+			fluid_b = 16
+			transparency = 0
+			viscosity = 0.4
+			bioeffect_id = "accent_aussie"
+			taste = "salty"
+
 		fooddrink/boneyjuice
 			name = "the satisfaction of making spaghetti"
 			id = "boneyjuice"
