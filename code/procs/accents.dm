@@ -2543,7 +2543,7 @@ var/list/zalgo_mid = list(
 
 	var/modded = jointext(modded_tokens, " ")
 	if(prob(33))
-		modded += pick(" Maaate!", " Mate!", " MAAAAATE!", " CRIKEY!")
+		modded += pick(" MAAAAATE!", " CRIKEY!")
 	return modded
 
 /proc/aussie_parse(var/datum/text_roamer/R)
